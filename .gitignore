@@ -1,6 +1,4 @@
-data/
-ds-final/
 org/
-processed/
-test1/
+model-evals/
+data/
 .DS_Store

@@ -10,22 +10,25 @@
 
 ## Q1: Probability of initial image predicting final outcome
 
-Old model evaluations in simulations 2001-2500:
-![](../figs/cnn-scatter-fo.png)
-
-Training data (1-2001):
-![](../figs/cnn-all-scatter-1-2001.png)
+Old model, first only on test set:
+![](../figs/cnn-all/scatter-test-first-only.png)
 
 Train brand-new model on just first image (left/right only):
-![](../figs/first-only-scatter-2001-2500.png)
+![](../figs/cnn-first-only/scatter-2001-2500.png)
 
 So initial impression of model's accuracy early on was mistake, only works on
-a few examples, as dots don't really cluster anywhere.
+a few examples, as dots don't really cluster anywhere. Look at initial model
+predictions on testing data first only:
+![](..lfigs/cnn-all/scatter-test-first-only.png)
 
 ## Q2: Does sum of left/right predict outcome?
 
-![](../figs/first-lr-distribution.png)
+No.
 
-## Q3: WIP
+![](../figs/step1-lr-distribution.png)
 
-## Q4: WIP
+## Q4: Only bottom half
+
+![](../figs/cnn-bottom-half/first-only.png)
+![](../figs/cnn-bottom-half/last-only.png)
+![](../figs/cnn-bottom-half/training-acc.png)
