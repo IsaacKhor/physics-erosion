@@ -14,7 +14,7 @@ Old model evaluations in simulations 2001-2500:
 ![](../figs/cnn-scatter-fo.png)
 
 Training data (1-2001):
-![](../figs/cnn-scatter-1-2001.png)
+![](../figs/cnn-all-scatter-1-2001.png)
 
 Train brand-new model on just first image (left/right only):
 ![](../figs/first-only-scatter-2001-2500.png)
