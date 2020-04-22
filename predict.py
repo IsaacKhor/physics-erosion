@@ -7,19 +7,27 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-classifier = kmodels.load_model('attempt-1.h5')
+classifier = kmodels.load_model(sys.argv[1])
+
+def load_img(sim_no, step):
+    data = []
+    img = cv2.imread('processed/{}/{}.jpg'.format(sim_no,step), 
+        cv2.IMREAD_GRAYSCALE)
+    img = img.reshape(50,50,1)
+    data.append(img)
+    return np.array(data)
 
 def load_sim(sim_no):
     data = []
     for step_no in range(1,202):
-        img = cv2.imread('processed/Image-{}-{}.jpg'.format(sim_no, step_no),
+        img = cv2.imread('processed/{}/{}.jpg'.format(sim_no, step_no),
             cv2.IMREAD_GRAYSCALE)
         img = img.reshape(50,50,1)
         data.append(img)
 
     return np.array(data)
 
-for sim_no in range(2003, 2007):
+def plot_preds(sim_no):
     data = load_sim(sim_no)
     predictions = classifier.predict(data)
 

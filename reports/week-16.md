@@ -9,12 +9,12 @@
 
 ## Figures
 
-![](../figs/sim-2002.png)
-![](../figs/sim-2003.png)
-![](../figs/sim-2004.png)
-![](../figs/sim-2005.png)
-![](../figs/sim-2006.png)
-![](../figs/sim-2007.png)
-![](../figs/sim-2008.png)
-![](../figs/sim-2030.png)
-![](../figs/sim-2041.png)
+![](../model-evals/cnn-full-figs/sim-2002.png)
+![](../model-evals/cnn-full-figs/sim-2003.png)
+![](../model-evals/cnn-full-figs/sim-2004.png)
+![](../model-evals/cnn-full-figs/sim-2005.png)
+![](../model-evals/cnn-full-figs/sim-2006.png)
+![](../model-evals/cnn-full-figs/sim-2007.png)
+![](../model-evals/cnn-full-figs/sim-2008.png)
+![](../model-evals/cnn-full-figs/sim-2030.png)
+![](../model-evals/cnn-full-figs/sim-2041.png)
