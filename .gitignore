@@ -1,4 +1,6 @@
 org/
+sims/
+generated/
 model-evals/
 data/
 .DS_Store
