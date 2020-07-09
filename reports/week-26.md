@@ -12,15 +12,19 @@ Using the following features:
 3. Split image into 50 rows, for which we take the "weighted average" of the channel
   center. This is done by taking 1 - the value of each pixel and treating that
   as a distribution over which we take the weighted average
+    - There's probably a better way of doing this
+    - Idea is to capture the 'center' of the channel in some form
+    - Maybe weight items below a threshold more?
 
 The results were:
 - #1 acheived 53% accuracy with both naive bayes and k-nearest neighbour models
-    - Initial naive testing saw over 90% accuracy, probably overfitting
+    - Initial testing saw over 90% accuracy, probably overfitting
     - Resolved by aggressive normalisation and reducing amout of input data
 - #2 with naive bayes has 65%
     - Same issue as #1, wasn't sure if overfitting or underfitting is still a problem
     - Didn't spend much time investigating, move on to #3
 - #3 with decision tree had 86%
+    - Looks like it overfit?
 ![](../figs/classical1/decision-tree.png)
 
 Further questions

@@ -72,11 +72,11 @@ avg_dark_data = np.asarray(avg_dark_data)
 labels = np.asarray(labels)
 
 (train_x1, test_x1, train_y1, test_y1) = sklearn.model_selection.train_test_split(
-    middle_split_data, labels, test_size=0.2, random_state=42)
+    middle_split_data, labels, test_size=0.3, random_state=42)
 (train_x2, test_x2, train_y2, test_y2) = sklearn.model_selection.train_test_split(
-    highest_lr_data, labels, test_size=0.2, random_state=42)
+    highest_lr_data, labels, test_size=0.3, random_state=42)
 (train_x3, test_x3, train_y3, test_y3) = sklearn.model_selection.train_test_split(
-    avg_dark_data, labels, test_size=0.2, random_state=42)
+    avg_dark_data, labels, test_size=0.3, random_state=42)
 
 import sklearn.naive_bayes
 import sklearn.tree
@@ -88,8 +88,8 @@ middle_split_model = middle_split_model.fit(train_x1, train_y1)
 highest_lr_model = highest_lr_model.fit(train_x2, train_y2)
 avg_dark_model = avg_dark_model.fit(train_x3, train_y3)
 
-# eval_result = classifier.evaluate(
-#     test_x, test_y,
-#     batch_size = BATCH_SIZE)
+eval_result = classifier.evaluate(
+    test_x, test_y,
+    batch_size = BATCH_SIZE)
 
-# print('Evaluation result:', eval_result)
+print('Evaluation result:', eval_result)
