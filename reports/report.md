@@ -129,9 +129,9 @@ array([[-3.07005392e-01, -2.64534298e-01, -3.76518156e-01,
 - Doesn't have to sum to 1 since data contains instances where it goes to both
 - Since output is a 2-tuple, we can plot it on a 2D graph
 - Take all the simulations, select only `t=1`, and plot all the predictions:
-![](../cnn-all/c25-scatter-test-first.png)
+![](../figs/cnn-all/c25-scatter-test-first.png)
 - Same, but for `t=200` only:
-![](../cnn-all/c25-scatter-test-last.png)
+![](../figs/cnn-all/c25-scatter-test-last.png)
 - As expected, predictions start from the middle of 50/50 and diverges into
   the corners with higher levels of confidence
 - Define an "overall level of confidence" by taking the prediction (a 2-tuple
@@ -139,10 +139,10 @@ array([[-3.07005392e-01, -2.64534298e-01, -3.76518156e-01,
   point to `(0,1), (1,0), (1,1)`, which represent 100% confidence is a prediction
   and taking the minimum of the three distances.
 - Plot of average minimum distance vs time:
-![](../cnn-all2/c25-avgmdot.png)
+![](../figs/cnn-all2/c25-avgmdot.png)
 - Instead of normalising against time, normalise against how far the stream
   has travelled (out of 50 in below example)
-![](../cnn-all2/c12-ratio-ot-2.png)
+![](../figs/cnn-all2/c12-ratio-ot-2.png)
 
 
 ### RNN
