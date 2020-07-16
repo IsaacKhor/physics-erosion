@@ -15,16 +15,15 @@ Problems:
 
 ![](../figs/classical/pca.png)
 
-- Only 7 components predict everything else
+- Only 7 components explain most of the variance present in the set of features
 - Train random forest on PCA with n=7
     - Still 0.99 accuracy
-    - Highly suspicios but also interesting?
+    - Highly suspicious but also interesting?
 - Try something else
     - What if we get just n=1 from PCA?
     - Correlation between (pca_data, labels) = -0.733
 - What about a OLS model?
     - PCA with n=7, R^2 = 0.628
-    - 
 
 To do:
 - Get weights of PCA

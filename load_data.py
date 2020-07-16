@@ -23,9 +23,11 @@ for sim_no in range(1,2001):
     for step in range(1,201):
         image = cv2.imread(
             'processed/{}/{}.jpg'.format(sim_no, step),
-            cv2.IMREAD_GREYSCALE)
+            cv2.IMREAD_GRAYSCALE)
         image = image.reshape(50,50)
         sim_data.append(image)
     all_data.append(sim_data)
 
 all_data = np.asarray(all_data)
+
+np.save('processed/summary.npy')

@@ -42,8 +42,8 @@ def label_to_cat(lbl):
 avg_dark_data = []
 labels = []
 
-for sim_no in range(1,100):
-    print('Loading: sim', sim_no)
+for sim_no in range(1,1000):
+    # print('Loading: sim', sim_no)
     category = label_to_cat(sim_labels[sim_no-1])
     if category == 2:
         continue
@@ -58,34 +58,44 @@ avg_dark_data = np.asarray(avg_dark_data)
 labels = np.asarray(labels)
 
 # PCA
-pca = sdecomp.PCA(n_components=7)
+pca = sdecomp.PCA(n_components=2)
 pca.fit(avg_dark_data)
 reduced_data = pca.transform(avg_dark_data)
 
+# Train
 train_x, test_x, train_y, test_y = sklearn.model_selection.train_test_split(
     reduced_data, labels, test_size=0.3, random_state=42
     )
 
-model = sklearn.ensemble.RandomForestClassifier(
-    n_estimators=500, oob_score=True, criterion='entropy')
+import sklearn.linear_model
+model = sklearn.linear_model.LinearRegression()
 model = model.fit(train_x, train_y)
 
 import sklearn.metrics as sm
 preds = model.predict(test_x)
-print('Accuracy: ', sm.accuracy_score(preds, test_y))
-print('Precision: ', sm.precision_score(preds, test_y))
+# print('Accuracy: ', sm.accuracy_score(preds, test_y))
+# print('Precision: ', sm.precision_score(preds, test_y))
 
-def plot_feature_importances(forest, path):
-    importances = forest.feature_importances_
-    std = np.std([tree.feature_importances_ for tree in forest.estimators_], axis=0)
-    indices = np.argsort(importances)[::-1]
-    plt.figure()
-    plt.title("Feature importances")
-    plt.bar(range(7), importances[indices],
-            color="r", yerr=std[indices], align="center")
-    plt.xticks(range(7), indices)
-    plt.xlim([-1, 7])
-    plt.savefig(path)
-    plt.close()
+colours = ['#FF0000' if x == 0 else '#0000FF' for x in labels]
+test_colours = ['#FF0000' if x == 0 else '#0000FF' for x in test_y]
 
-plot_feature_importances(model, 'figs/classical/rf_pca_importance.png')
+# Plot n=2 PCA and output, look for possible clustering
+fig = plt.figure(figsize=(9.6,4.8))
+s1 = fig.add_subplot(1,2,1)
+s1.scatter(avg_dark_data[:,0], avg_dark_data[:,1], c=colours, s=1)
+s1.set_xlabel('pca dimension 0')
+s1.set_ylabel('pca dimension 1')
+s1.set_title('2D PCA distribution of values')
+
+s2 = fig.add_subplot(1,2,2)
+s2.scatter(test_x[:,0], test_x[:,1], c=test_colours, s=1)
+s2.set_xlabel('pca dimension 0')
+s2.set_ylabel('pca dimension 1')
+s2.set_title('2D PCA distribution of test values only')
+
+fig.savefig('figs/classical/pca2_clustering.png')
+plt.close(fig)
+
+# Test out pca with n=1 and slice by time step
+# transposed_data = np.transpose(raw_data, (1,0,2,3))
+# for ts in range(0,200):
