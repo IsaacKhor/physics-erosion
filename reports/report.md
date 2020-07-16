@@ -74,7 +74,8 @@ _picture of physical experiments_
   use PCA to reduce down to `n=7` features
     - Visualisation of PCA with `n=2` features
     - ![](../figs/classical/pca2_clustering.png)
-    - Components: ```
+    - Components: 
+```
 >>> pca.components_
 array([[-3.07005392e-01, -2.64534298e-01, -3.76518156e-01,
         -3.64752211e-01, -3.58203712e-01, -3.09247874e-01,
@@ -110,7 +111,7 @@ array([[-3.07005392e-01, -2.64534298e-01, -3.76518156e-01,
         -2.14060752e-02, -1.81127499e-02, -2.06287720e-02,
         -2.33959204e-02, -2.05423780e-02, -2.57149014e-02,
         -2.82348033e-02, -2.80531636e-02]])
-    ```
+```
     - As expected, components weighed more towards the top of the image (since
       the 0th element represents the top row here)
 - Simple experiment: what if we train an ordinary least squares model on 2D PCA
